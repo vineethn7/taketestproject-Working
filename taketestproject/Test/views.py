@@ -8,11 +8,12 @@ def post(request):
 
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = TestForm(request.POST)
+        form = TestForm(request.POST, request.FILES)
         # check whether it's valid:
         if form.is_valid():
+            form.save()
             # process the data in form.cleaned_data as required
-              # redirect to a new URL:
+            # redirect to a new URL:
             return redirect('TakeTest-Home')
 
     # if a GET (or any other method) we'll create a blank form

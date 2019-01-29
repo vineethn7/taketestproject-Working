@@ -9,6 +9,7 @@ class TestM(models.Model):
     TimeDuration = models.IntegerField()
     PosMarks = models.IntegerField()
     NegMarks = models.IntegerField()
+    InputTextFile = models.FileField()
 
     def __unicode__(self):
         return self.TestName
