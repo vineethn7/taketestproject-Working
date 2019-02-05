@@ -1,0 +1,16 @@
+{% extends 'TakeTestApp/base.html' %}
+{% block content %}
+    <h3 class="display-6">{{ TestName }}</h3>
+    <ul>
+    {% for q, opts in quesBank.items %}
+
+            {{ q  }}
+            <ol>
+                {% for opt in opts %}
+                    <li><input type="radio">{{opt}}</li></input>
+                {% endfor %}
+            </ol>
+
+   {% endfor %}
+   </ul>
+{% endblock content%}

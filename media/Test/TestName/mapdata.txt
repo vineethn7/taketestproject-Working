@@ -1,0 +1,8 @@
+opt1:Vineeth
+opt2:Vineth
+opt3:Vinith
+opt4:Vinth
+opt1:Hyderabad
+opt2:Secunderabad
+opt3:Rajasthan
+opt4:vizag
