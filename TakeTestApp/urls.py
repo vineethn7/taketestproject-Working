@@ -7,5 +7,6 @@ urlpatterns = [
     path('home/', views.home, name="TakeTest-Home"),
     path('about/', views.about, name="TakeTest-About"),
     path('post/', views_tests.post, name="Test-Post"),
-    path('testmake/', views_testMake.MakeTest, name="Test-Making")
+    path('testmake/', views_testMake.MakeTest, name="Test-Making"),
+    #path('',views_testMake.SubmitTest, name="SubmitTest")
 ]

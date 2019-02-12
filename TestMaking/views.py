@@ -4,6 +4,12 @@ from Test.models import TestM
 # Create your views here.
 
 
+"""def SubmitTest(request):
+    if request.method == 'POST':
+        messages.success(request, 'Dear student, your test {} is submited successfully'.format(TestName))
+        return redirect('profile')"""
+
+
 def MakeTest(request):
     #file1 = open('media/Test/TestName/{}'.format(InputTextFile), 'r')
     file1 = open('media/Test/TestName/ques.txt', 'r')
@@ -25,3 +31,6 @@ def MakeTest(request):
         quesBank[qu] = [options[x] for x in range(i, i + 4)]
         i = i + 4
     return render(request, 'TestMaking/maketest.html', {'TestName': 'Test has begun', 'ques': ques, 'options': options, 'quesBank': quesBank})
+    if request.method == 'POST':
+        messages.success(request, 'Dear student, your test {} is submited successfully'.format(TestName))
+        return redirect('profile')

@@ -1,21 +1,22 @@
 {% extends 'TakeTestApp/base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
     <h3 class="display-6">{{ TestName }}</h3>
     <div class="content-section">
-        <form method="post">
-          {% csrf_token %}
-          <ul>
-            {% for q, opts in quesBank.items %}
-                    {{ q  }}
-                    <ol>
-                        {% for opt in opts %}
-                            <li><input type="radio">{{opt}}</li></input>
-                        {% endfor %}
-                    </ol>
-            {% endfor %}
-            </ul>
-      
-            <button type="submit" class="btn btn-outline-info">Submit</button>
-          </form>
+    <form method="post" action="{% url 'TakeTest-Home' %}">
+    {% csrf_token %}
+        <ul>
+        {% for q, opts in quesBank.items %}
+                {{ q  }}
+                <ol>
+                    {% for opt in opts %}
+                        <input type="radio" name="{{q}}" required>{{opt}}</input>
+                        <br>
+                    {% endfor %}
+                </ol>
+        {% endfor %}
+        </ul>
+        <button class="btn btn-outline-info" type="submit">Submit</button>
+    </form>
     </div>
 {% endblock content%}
