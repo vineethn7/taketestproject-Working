@@ -1,0 +1,17 @@
+{% extends 'TakeTestApp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h3 class="display-6">Test has begun!</h3><br>
+    <div class="content-section">
+      <form method="POST">
+        {% csrf_token %}
+        {% for q, opts in quesBank.items %}
+          <ol>{{ q }}</ol>
+            {% for op in opts %}
+             {{ form.options[forloop.counter] }}{{ op }}<br>
+            {% endfor %}
+        {% endfor %}
+        <button class="btn btn-outline-info" type="submit">Submit</button>
+      </form>
+    </div>
+{% endblock content%}

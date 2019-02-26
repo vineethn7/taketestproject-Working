@@ -63,3 +63,9 @@
     </form>
     </div>
 {% endblock content%}
+<!{% for opt in form.options %}
+            {{ opt }}
+            {% for op in opts %}
+              {{ op }}<br>
+            <!{% endfor %}
+          {% endfor %}>

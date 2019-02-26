@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
 
     'TestMaking.apps.TestmakingConfig',
-    'users.apps.UsersConfig',
+    'userRegister.apps.UserregisterConfig',
     'crispy_forms',
     'TakeTestApp.apps.TaketestappConfig',
     'django.contrib.admin',

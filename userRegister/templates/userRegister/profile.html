@@ -1,0 +1,10 @@
+{% extends "TakeTestApp/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>{{ user.userprofile.usertype }}</h1>
+{% if user.userprofile.usertype == 'o' %}
+  <h1>Hello Organization</h1>
+{% else %}
+  <h1>Hello Student</h1>
+{% endif %}
+{% endblock content %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from Test.models import TestM
-
+from .forms import TestFORM
 # Create your views here.
 
 
@@ -30,7 +30,13 @@ def MakeTest(request):
     for qu in ques:
         quesBank[qu] = [options[x] for x in range(i, i + 4)]
         i = i + 4
-    return render(request, 'TestMaking/maketest.html', {'TestName': 'Test has begun', 'ques': ques, 'options': options, 'quesBank': quesBank})
+
     if request.method == 'POST':
-        messages.success(request, 'Dear student, your test {} is submited successfully'.format(TestName))
-        return redirect('profile')
+        form = TestFORM(request.POST)
+        if form.is_valid():
+            return redirect('TakeTest-Home')
+            """ form.save()
+        messages.success(request, 'Dear student, your test {} is submited successfully'.format(TestName))"""
+    else:
+        form = TestFORM()
+    return render(request, 'TestMaking/conduct.html', {'form': form, 'TestName': 'Test has begun', 'ques': ques, 'options': options, 'quesBank': quesBank})
