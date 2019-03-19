@@ -43,14 +43,14 @@
     <br>
     <h3 class="display-6">{{ TestName }}</h3><br>
     <div class="content-section">
-    <form method="post" action="{% url 'TakeTest-Home' %}">
+    <form method="post">
     {% csrf_token %}
         <ul>
         {% for q, opts in quesBank.items %}
                 {{ q  }}
                 <ol>
                     {% for opt in opts %}
-                        <label class="radiocontainer"><input type="radio" name="{{q}}" required>{{opt}}</input></label><span class='checkmark'></span>
+                        <label class="radiocontainer"><input type="radio" id="choice" name="{{q}}" required>{{opt}}</input></label><span class='checkmark'></span>
                         <br>
                     {% endfor %}
                 </ol>
@@ -63,9 +63,3 @@
     </form>
     </div>
 {% endblock content%}
-<!{% for opt in form.options %}
-            {{ opt }}
-            {% for op in opts %}
-              {{ op }}<br>
-            <!{% endfor %}
-          {% endfor %}>

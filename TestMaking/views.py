@@ -1,18 +1,16 @@
 from django.shortcuts import render, redirect
-from Test.models import TestM
-from .forms import TestFORM
-# Create your views here.
-
+from django.contrib.auth.decorators import login_required
+from .models import Choices
 
 """def SubmitTest(request):
     if request.method == 'POST':
         messages.success(request, 'Dear student, your test {} is submited successfully'.format(TestName))
         return redirect('profile')"""
 
-
+@login_required
 def MakeTest(request):
     #file1 = open('media/Test/TestName/{}'.format(InputTextFile), 'r')
-    file1 = open('media/Test/TestName/ques.txt', 'r')
+    file1 = open('ques.txt', 'r')
     lines = file1.readlines()
     file1.close()
     ques = []
@@ -30,13 +28,9 @@ def MakeTest(request):
     for qu in ques:
         quesBank[qu] = [options[x] for x in range(i, i + 4)]
         i = i + 4
-
     if request.method == 'POST':
-        form = TestFORM(request.POST)
-        if form.is_valid():
-            return redirect('TakeTest-Home')
-            """ form.save()
-        messages.success(request, 'Dear student, your test {} is submited successfully'.format(TestName))"""
-    else:
-        form = TestFORM()
-    return render(request, 'TestMaking/conduct.html', {'form': form, 'TestName': 'Test has begun', 'ques': ques, 'options': options, 'quesBank': quesBank})
+        cleandata = self.cleaned_data['choices']
+        messages.success(request, 'Dear student, your test {} is submited successfully'.format(TestName))
+        return redirect('profile')
+    context = {'TestName': 'Test has begun', 'ques': ques, 'options': options, 'quesBank': quesBank }
+    return render(request, 'TestMaking/maketest.html', context)

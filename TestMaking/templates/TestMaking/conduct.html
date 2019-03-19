@@ -8,7 +8,8 @@
         {% for q, opts in quesBank.items %}
           <ol>{{ q }}</ol>
             {% for op in opts %}
-             {{ form.options[forloop.counter] }}{{ op }}<br>
+            {{ i+1 }}
+             {{ form.options.i }}{{ op }}<br>
             {% endfor %}
         {% endfor %}
         <button class="btn btn-outline-info" type="submit">Submit</button>

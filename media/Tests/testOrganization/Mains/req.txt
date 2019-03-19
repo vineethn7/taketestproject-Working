@@ -1,0 +1,4 @@
+Profile
+user(Organization) -> testPost (one to many)
+user(student) -> view tests
+

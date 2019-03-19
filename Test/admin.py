@@ -1,5 +1,11 @@
 from django.contrib import admin
-from .models import TestM
-# Register your models here.
+from .models import TestInfo
 
-admin.site.register(TestM)
+class TestInfoAdmin(admin.ModelAdmin):
+
+    def save_model(self, request, obj, form, change):
+        if not change:
+            obj.Uploader_info = request.user.username
+        obj.save()
+
+admin.site.register(TestInfo, TestInfoAdmin)

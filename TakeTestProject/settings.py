@@ -31,18 +31,17 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-
-    'TestMaking.apps.TestmakingConfig',
-    'userRegister.apps.UserregisterConfig',
-    'crispy_forms',
     'TakeTestApp.apps.TaketestappConfig',
+    'userRegister.apps.UserregisterConfig',
+    'Test.apps.TestConfig',
+    'TestMaking.apps.TestmakingConfig',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Test.apps.TestConfig'
 ]
 
 MIDDLEWARE = [
@@ -86,7 +85,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -125,9 +123,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
-MEDIA_URL = '/media/'
+#From vineeth(Working)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
