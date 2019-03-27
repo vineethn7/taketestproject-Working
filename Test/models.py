@@ -19,7 +19,7 @@ class TestInfo(models.Model):
     PosMarks = models.IntegerField()
     NegMarks = models.IntegerField()
     InputTextFile = models.FileField(upload_to=content_file_name, blank=False, validators=[validate_file_extension])
-
+    date =  models.DateTimeField(auto_now=True)
     def __str__(self):
         template = '{0.TestName} {0.Uploader_info}'
         return template.format(self)

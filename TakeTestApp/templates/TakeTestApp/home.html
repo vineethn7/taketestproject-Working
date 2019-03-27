@@ -27,7 +27,20 @@
   </li>
 </ul>
 {% elif user.userprofile.usertype == 's' %}
-  <h5 class="text-primary">Student HomePage, this should list tests available.</h5>
+  {% for tests in tests %}
+  <article class="media content-section">
+  <img class="rounded-circle article-img" src="{{ tests.user.userprofile.image.url }}">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="#">{{ tests.user }}</a>
+      <small class="text-muted">{{ tests.date|date:"F d, Y" }}</small>
+    </div>
+    <h2><a style="color: #ee6572;" href="{% url 'Test-Making' organisationName=tests.user testName=tests.TestName %}">{{ tests.TestName }}</a></h2>
+    <p class="article-content" >Total Marks: {{ tests.MaxMarks }}, Max Time = {{ tests.TimeDuration }}hrs, Positive/Negative : {{ tests.PosMarks }}/{{ tests.NegMarks }} </p>
+  </div>
+  </article>
+  {% endfor %}
+
 {% else %}
   <h5 class="text-primary">Homepage for new visitors</h5>
 {% endif %}

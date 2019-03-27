@@ -1,7 +1,8 @@
 from django.shortcuts import render
-
+from Test.models import TestInfo
 def home(request):
-    return render(request, 'TakeTestApp/home.html',{'title':'Home'})
+    tests =  TestInfo.objects.all()
+    return render(request, 'TakeTestApp/home.html',{'tests':tests})
 
 def about(request):
     return render(request, 'TakeTestApp/about.html')

@@ -20,7 +20,7 @@ def post(request):
             File = form.cleaned_data.get('InputTextFile')
             fulltest.save()
             messages.success(request, 'Test {} Posted successfully'.format(TestName))
-            return redirect('Test-Making')
+            return redirect('TakeTest-Home')
         else:
             parameters = {
               'form': form,

@@ -1,0 +1,3 @@
+Profile
+user(student) -> view tests
+
