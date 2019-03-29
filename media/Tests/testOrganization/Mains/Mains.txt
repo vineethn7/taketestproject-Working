@@ -4,15 +4,15 @@ opt2: B
 opt3: C
 opt4: D
 Q:Capital of india is?
-opt1:Telangana
-opt2:Tamil Nadu
+opt1: Telangana
+opt2: Tamil Nadu
 opt3*: Delhi
 opt4: Banglore
 Q:Best programming language is?
-opt1:Python
-opt2:C++
-opt3:Java
-opt4:Others/There is no best programming lang.
+opt1: Python
+opt2: C++
+opt3: Java
+opt4*: Others/There is no best programming lang.
 Q:Which of the following is an operating system?
 opt1: iPhone
 opt2*: Linux

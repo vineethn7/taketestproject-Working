@@ -8,9 +8,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel = "stylesheet" href = "{% static 'css/quiz.css' %}">
-    <script src = "{% static 'js/quiz.js' %}"></script>
-
+    <link rel="stylesheet" src="{% static 'css/quiz.css' %}"></link>
+    <script src="{% static 'js/quiz.js' %}"></script>
     {% if title%}
         <title>TakeTest - {{ title }}</title>
     {% else %}
@@ -39,14 +38,14 @@
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'profile' %}">Profile</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}">Logout</a>
           </li>
       {% else %}
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'login' %}">Login</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'signup' %}">Register</a>
           </li>
       {% endif %}

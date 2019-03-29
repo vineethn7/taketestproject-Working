@@ -1,3 +1,40 @@
+.radiocontainer {
+background-color:#f1f1f1;
+display: block;
+position: relative;
+padding:10px 10px 10px 50px;
+margin-bottom: 1px;
+cursor: pointer;
+font-size: 18px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+word-wrap: break-word;
+}
+.radiocontainer:hover input ~ .checkmark {
+/*nothing*/
+}
+.radiocontainer:hover {
+background-color: #ddd;
+}
+.radiocontainer input:checked ~ .checkmark {
+background-color: #2196F3;
+}
+.radiocontainer input:checked ~ .checkmark:after {
+display: block;
+}
+/* Style the indicator (dot/circle) */
+.radiocontainer .checkmark:after {
+top: 6px;
+left: 6px;
+width: 7px;
+height: 7px;
+border-radius: 50%;
+background: white;
+}
+
+
 .bg-steel {
   background-color: #5f788a;
 }
@@ -67,49 +104,4 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
-}
-.radiocontainer {
- background-color:#f1f1f1;
- display: block;
- position: relative;
- padding:10px 10px 10px 50px;
- margin-bottom: 1px;
- cursor: pointer;
- font-size: 18px;
- -webkit-user-select: none;
- -moz-user-select: none;
- -ms-user-select: none;
- user-select: none;
- word-wrap: break-word;
-}
-.radiocontainer:hover input ~ .checkmark {
- /*nothing*/
-}
-.radiocontainer:hover {
- background-color: #ddd;
-}
-.radiocontainer input:checked ~ .checkmark {
- background-color: #2196F3;
-}
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.checkmark:after {
- content: "";
- position: absolute;
- display: none;
-}
-
-/* Show the indicator (dot/circle) when checked */
-.radiocontainer input:checked ~ .checkmark:after {
- display: block;
-}
-
-/* Style the indicator (dot/circle) */
-.radiocontainer .checkmark:after {
-  top: 9px;
-left: 9px;
-width: 8px;
-height: 8px;
-border-radius: 50%;
-background: white;
 }

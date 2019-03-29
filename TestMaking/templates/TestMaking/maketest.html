@@ -1,25 +1,25 @@
 {% extends 'TakeTestApp/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <h3 class="display-6">Test has begun.</h3>
-
+<br>
+    <center><h1 class="display-4">{{ testName }}</h1></center>
+<br>
     <div class="content-section">
-    <form name="taketest" onsubmit="return submitAnswers(answers=[{% for a in correctAnswer %}'{{a}}',{% endfor %}])">
+    <!-- <form method="post" action="{% url 'dashboard' %}"> -->
+    <form name="testForm" onsubmit="return submitAnswers(answers = [{% for a in ans %} '{{ a }}',{% endfor %}],pMarks={{pMarks}},nMarks={{nMarks}})">
+    {% csrf_token %}
         <ul>
         {% for q, opts in quesBank.items %}
-                {{ forloop.counter }}{{q}}
+                <h4>{{ q }}</h4><br>
                 <ol>
-                        <label class='radiocontainer'><input type="radio" name="q{{forloop.counter}}" value="{{opts.0}}">{{opts.0}}</input></label><span class='checkmark'>
-                        <label class='radiocontainer'><input type="radio" name="q{{forloop.counter}}" value="{{opts.1}}">{{opts.1}}</input></label><span class='checkmark'>
-                        <label class='radiocontainer'><input type="radio" name="q{{forloop.counter}}"value="{{opts.2}}">{{opts.2}}</input></label><span class='checkmark'>
-                        <label class='radiocontainer'><input type="radio" name="q{{forloop.counter}}" value="{{opts.3}}">{{opts.3}}</input></label><span class='checkmark'>
-
+                    {% for opt in opts %}
+                        <label class="radiocontainer"><input type="radio" value="{{ opt }}" name="q{{ forloop.parentloop.counter }}">{{opt}}</input></label><span class='checkmark'></span>
+                        <br>
+                    {% endfor %}
                 </ol>
         {% endfor %}
         </ul>
-        <div class="text-right">
-          <button class="btn btn-outline-info" type="submit">Submit</button>
-        </div>
+        <center><button class="btn btn-outline-info" type="submit">Submit</button></center>
     </form>
     </div>
 {% endblock content%}

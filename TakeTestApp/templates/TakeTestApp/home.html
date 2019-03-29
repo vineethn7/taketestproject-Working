@@ -35,7 +35,7 @@
       <a class="mr-2" href="#">{{ tests.user }}</a>
       <small class="text-muted">{{ tests.date|date:"F d, Y" }}</small>
     </div>
-    <h2><a style="color: #ee6572;" href="{% url 'Test-Making' organisationName=tests.user testName=tests.TestName %}">{{ tests.TestName }}</a></h2>
+    <h2><a style="color: #ee6572;" href="{% url 'Test-Making' organisationName=tests.user testName=tests.TestName pMarks=tests.PosMarks nMarks=tests.NegMarks%}">{{ tests.TestName }}</a></h2>
     <p class="article-content" >Total Marks: {{ tests.MaxMarks }}, Max Time = {{ tests.TimeDuration }}hrs, Positive/Negative : {{ tests.PosMarks }}/{{ tests.NegMarks }} </p>
   </div>
   </article>
